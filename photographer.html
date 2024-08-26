@@ -19,11 +19,11 @@
       </div>
       <div class="dropdown" role="region" aria-labelledby="filtre des medias">
         <div class="dropdown-button" aria-haspopup="true" aria-expanded="false"> 
-          <p id="Populaire-filter" aria-label="Trier par popularité" tabIndex = 0;>Populaire</p>
+          <p id="Populaire-filter" aria-label="Trier par popularité" tabIndex = 0>Populaire</p>
         </div>
         <div class="dropdown-content">
-          <p id="date-filter" aria-label="Trier par date" tabIndex = 0;>Date</p>
-          <p id="title-filter" aria-label="Trier par titre" tabIndex = 0;>Titre</p>
+          <p id="date-filter" aria-label="Trier par date">Date</p>
+          <p id="title-filter" aria-label="Trier par titre">Titre</p>
         </div>
       </div>
       <div class="media-section" aria-label="Section des médias">
@@ -37,7 +37,7 @@
         <div class="modal">
           <header>
             <h2>Contactez-moi</h2>
-            <img class="close" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer"/>  
+            <img class="close" id="close_contact_modal" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer" tabIndex = 0/>  
           </header>
           <h3 class="photographer-name-contact"></h3>
 				<form>
@@ -58,17 +58,17 @@
 						<textarea class="aera" id="message" name="message" aria-required="true">
               </textarea>
 					</div>
-          <input  type="submit" class="contact_button" value="envoyer"/>
+          <input  type="submit" class="contact_button" value="envoyer" tabIndex = 0/>
 				</form>
 			</div>
 		</div>
-    <div class="bground-modalPhoto" id="photo_modal" role="dialog" aria-labelledby="photo-modal-heading" aria-modal="true">
+    <div class="bground-modalPhoto" id="photo_modal" role="dialog" aria-labelledby="photo-modal-heading" aria-modal="true" tabIndex = -1>
       <div class="photo_modal">
-          <img class="left" src="assets/icons/right-thin-chevron-svgrepo-com.svg" alt="Image précédente" /> 
+          <img class="left" src="assets/icons/right-thin-chevron-svgrepo-com.svg" alt="Image précédente" tabIndex = 0 /> 
           <img class="media-modal-img" role="img" aria-label="Image ou vidéo affichée dans la modale"/> 
-          <img class="right" src="assets/icons/right-thin-chevron-svgrepo-com.svg" alt="Image suivante"/> 
+          <img class="right" src="assets/icons/right-thin-chevron-svgrepo-com.svg" alt="Image suivante" tabIndex = 0 /> 
       </div>
-      <img class="closeModalPhoto" src="assets/icons/close2.svg"  alt="Fermer" onclick="closeMediaModal()" aria-label="fermer la modale" />  
+      <img class="closeModalPhoto" src="assets/icons/close2.svg"  alt="Fermer" onclick="closeMediaModal()" aria-label="fermer la modale" tabIndex = 0 />  
       <div class="photo-title" aria-label="Titre de la photo">
        
       </div>

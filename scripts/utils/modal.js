@@ -1,5 +1,3 @@
-// modal.js
-
 // Sélection des éléments globaux pour la modale
 const mediaModal = document.querySelector(".bground-modalPhoto");
 const modalImg = document.querySelector(".media-modal-img");
@@ -10,6 +8,7 @@ const closeBtn = document.querySelector(".closeModalPhoto");
 // Fonction pour fermer la modale
 function closeMediaModal() {
     mediaModal.classList.remove('open');
+    closeBtn.focus(); // Restaurer le focus sur le bouton de fermeture
 }
 
 // Fonction pour ouvrir la modale
@@ -37,6 +36,62 @@ function showModalImage(index, mediaItems) {
 
     currentIndex = index;
     openMediaModal(); // Afficher la modale
+
+    // Piéger le focus dans la modal
+    const focusableElements = mediaModal.querySelectorAll('.closeModalPhoto, .photo_modal .right, .photo_modal .left');
+    const firstFocusableElement = focusableElements[0]; 
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    const previousFocusedElement = document.activeElement; // Sauvegarder l'élément précédemment focalisé
+
+    firstFocusableElement.focus(); // Définir le focus sur le premier élément focalisable de la modal
+
+    function trapFocus(event) {
+        const isTabPressed = (event.key === 'Tab' || event.keyCode === 9);
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (event.shiftKey) { // Si Shift + Tab
+            if (document.activeElement === firstFocusableElement) {
+                event.preventDefault();
+                lastFocusableElement.focus(); // Aller au dernier élément
+            }
+        } else { // Si Tab
+            if (document.activeElement === lastFocusableElement) {
+                event.preventDefault();
+                firstFocusableElement.focus(); // Retour au premier élément
+            }
+        }
+    }
+
+    mediaModal.addEventListener('keydown', trapFocus);
+
+    // Gérer la fermeture de la modal avec Enter
+    function handleEnterKey(event) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            if (document.activeElement === closeBtn) {
+                closeModal();
+            } else if (document.activeElement === nextButton) {
+                nextImage();
+            } else if (document.activeElement === prevButton) {
+                prevImage();
+            }
+        }
+    }
+
+    mediaModal.addEventListener('keydown', handleEnterKey);
+
+    // Gérer la fermeture de la modal
+    function closeModal() {
+        mediaModal.classList.remove('open');
+        previousFocusedElement.focus(); // Restaurer le focus à l'élément précédemment focalisé
+        mediaModal.removeEventListener('keydown', trapFocus); // Supprimer l'écouteur d'événement
+        mediaModal.removeEventListener('keydown', handleEnterKey); // Supprimer l'écouteur d'événement pour Enter
+    }
+
+    // Ajouter un gestionnaire d'événements pour fermer la modal
+    closeBtn.addEventListener('click', closeModal);
 }
 
 // Fonction pour naviguer vers l'image suivante

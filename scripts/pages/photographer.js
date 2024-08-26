@@ -156,6 +156,7 @@ function updateTotalLikes() {
     priceDiv.setAttribute('aria-label', `Total de likes: ${totalLikes}`);
 }
 
+
 // Fonction pour gérer la navigation au clavier
 function handleKeyboardNavigation(event) {
     const focusableElements = Array.from(document.querySelectorAll('.media-container img, .media-container video'));

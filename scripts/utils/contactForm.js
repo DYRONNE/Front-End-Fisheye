@@ -1,13 +1,74 @@
+// Sélection des éléments globaux pour la modale
+const contactModal = document.getElementById("contact_modal");
+const closeModalBtn = document.getElementById("close_contact_modal");
+
+// Fonction pour ouvrir la modale
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+    contactModal.style.display = "block";
+    trapFocus();
 }
 
+// Fonction pour fermer la modale
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    contactModal.style.display = "none";
+    document.querySelector(".open-modal-button").focus(); // Restaure le focus à l'élément ayant ouvert la modal
 }
 
+// Fonction pour piéger le focus dans la modale
+function trapFocus() {
+    const focusableElements = contactModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    const previouslyFocusedElement = document.activeElement;
+
+    firstFocusableElement.focus();
+
+    function handleTabKey(event) {
+        const isTabPressed = (event.key === 'Tab' || event.keyCode === 9);
+        if (!isTabPressed) return;
+
+        if (event.shiftKey) { // Si Shift + Tab
+            if (document.activeElement === firstFocusableElement) {
+                event.preventDefault();
+                lastFocusableElement.focus(); // Aller au dernier élément
+            }
+        } else { // Si Tab
+            if (document.activeElement === lastFocusableElement) {
+                event.preventDefault();
+                firstFocusableElement.focus(); // Retour au premier élément
+            }
+        }
+    }
+
+    function handleEnterKey(event) {
+        const isEnterPressed = (event.key === 'Enter' || event.keyCode === 13);
+        if (isEnterPressed) {
+            if (document.activeElement === closeModalBtn) {
+                event.preventDefault();
+                closeModal(); // Fermer la modal si Enter est pressé sur le bouton de fermeture
+            } else if (document.activeElement.tagName === "BUTTON" && document.activeElement.type === "submit") {
+                event.preventDefault();
+                form.submit(); // Soumettre le formulaire si Enter est pressé sur le bouton "Submit"
+            }
+        }
+    }
+
+    document.addEventListener('keydown', handleTabKey);
+    document.addEventListener('keydown', handleEnterKey);
+
+    // Gérer la fermeture de la modal
+    function handleModalClose() {
+        contactModal.style.display = "none";
+        document.removeEventListener('keydown', handleTabKey);
+        document.removeEventListener('keydown', handleEnterKey);
+        previouslyFocusedElement.focus(); // Restaurer le focus à l'élément précédemment focalisé
+    }
+
+    closeModalBtn.addEventListener('click', handleModalClose);
+}
+
+
+// Ajouter un écouteur d'événement pour le formulaire
 let form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -27,4 +88,6 @@ form.addEventListener("submit", (event) => {
     let baliseMessage = document.getElementById("message");
     let Message = baliseMessage.value;
     console.log(Message);
-})
+
+    
+});
