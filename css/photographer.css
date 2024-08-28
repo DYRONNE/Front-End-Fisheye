@@ -4,8 +4,10 @@
 .logo {
     width: 200px;
 }
-.logo :focus{
-    border: 4px solid blue;
+.logo:focus{
+    opacity: 0.5;
+    padding: 40px;
+    outline: none
     
 }
 
@@ -73,7 +75,12 @@ div.info {
     
 }
 
-
+.contact_button:focus {
+    background-color: white;
+    color: #901C1C;
+    border: 3px solid #901C1C;
+    outline: none
+}
 
 /* bouton de tri  */
 
@@ -192,11 +199,21 @@ div.info {
     font-weight: normal;
 
 }
+input:focus, textarea:focus {
+    border: 6px solid #901C1C;
+    outline: none
+}
 
 .close {
     width: 40px;
     height: 40px;
     
+}
+.close:focus {
+    border: 2px solid #901C1C;
+    outline: none;
+    background-color: rgba(144, 28, 28, 0.5);
+    padding: 15px;
 }
 .photographer-name-contact {
     font-size: 64px;
@@ -262,7 +279,8 @@ img, video {
 }
 
 .img-video:focus {
-    outline: 2px solid blue; /* Applique un contour bleu aux éléments focalisés */
+    border: 6px solid #901C1C;
+    outline: none; 
 }
 
 
@@ -343,7 +361,7 @@ img, video {
     max-width: 80vw;
     max-height: 80vh;
     object-fit: cover;
-    margin-right: 5px;
+    margin-right: 50px;
     margin-left: 50px;
 }
 .left, .right {
@@ -356,6 +374,12 @@ img, video {
     transform: rotate(180deg);
 }
 
+.left:focus, .right:focus {
+    border: 6px solid #901C1C;
+    outline: none;
+    background-color: rgba(144, 28, 28, 0.5);
+}
+
 
 .closeModalPhoto {
     position: absolute;
@@ -365,6 +389,14 @@ img, video {
     height: 40px;
     cursor: pointer;
 }
+
+.closeModalPhoto:focus {
+    border: 2px solid #901C1C;
+    outline: none;
+    background-color: rgba(144, 28, 28, 0.5);
+    padding: 15px;
+}
+
 .photo-title {
     background: #312E2E;
     height: 40px;

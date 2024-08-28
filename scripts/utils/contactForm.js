@@ -5,7 +5,7 @@ const closeModalBtn = document.getElementById("close_contact_modal");
 // Fonction pour ouvrir la modale
 function displayModal() {
     contactModal.style.display = "block";
-    trapFocus();
+    trapFocusModal(); // Appel de la fonction de piège à focus ici
 }
 
 // Fonction pour fermer la modale
@@ -15,7 +15,7 @@ function closeModal() {
 }
 
 // Fonction pour piéger le focus dans la modale
-function trapFocus() {
+function trapFocusModal() {
     const focusableElements = contactModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     const firstFocusableElement = focusableElements[0];
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
@@ -67,7 +67,6 @@ function trapFocus() {
     closeModalBtn.addEventListener('click', handleModalClose);
 }
 
-
 // Ajouter un écouteur d'événement pour le formulaire
 let form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
@@ -88,6 +87,4 @@ form.addEventListener("submit", (event) => {
     let baliseMessage = document.getElementById("message");
     let Message = baliseMessage.value;
     console.log(Message);
-
-    
 });
