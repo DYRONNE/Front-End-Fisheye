@@ -85,6 +85,14 @@ div.info {
 /* bouton de tri  */
 
 /* Style de base pour le bouton */
+.filter-section {
+    display: flex;
+    align-items: center;
+}
+
+.filter-section_sort {
+    margin-left: 20px;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -102,11 +110,12 @@ div.info {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 5px 5px 5px 5px;
+   
+   }
+   .dropdown-button:hover {
     border-radius: 5px 5px 0px 0px;
-   
-
-   
-  }
+   }
 
   .dropdown-button p {
     margin: 0;
@@ -132,7 +141,12 @@ div.info {
     z-index: 1;
     width: 220px; 
     border-radius: 0px 0px 5px 5px;
+    
   }
+
+  .dropdown:hover .dropdown-button {
+    border-radius: 5px 5px 0 0;
+}
   
   .dropdown-content p {
     color: white;
@@ -141,8 +155,22 @@ div.info {
     display: block;
     margin: 0;
    
+   
   }
   
+  #title-filter, #date-filter{
+    cursor: pointer;
+   
+  }
+
+  #date-filter {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+   
+   
+   
+}
+
 
   
   .dropdown:hover .dropdown-content {
@@ -398,7 +426,7 @@ img, video {
 }
 
 .photo-title {
-    background: #312E2E;
+    color: #901C1C;
     height: 40px;
     position: relative;
     top: 480px;

@@ -17,13 +17,16 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()" aria-label="Ouvrir le formulaire de contact" tabIndex = 0;>Contactez-moi</button>
       </div>
-      <div class="dropdown" role="region" aria-labelledby="filtre des medias">
-        <div class="dropdown-button" aria-haspopup="true" aria-expanded="false"> 
-          <p id="Populaire-filter" aria-label="Trier par popularité">Populaire</p>
-        </div>
-        <div class="dropdown-content">
-          <p id="date-filter" aria-label="Trier par date">Date</p>
-          <p id="title-filter" aria-label="Trier par titre">Titre</p>
+      <div class="filter-section">
+        <p class="filter-section_sort">trier par</p>
+        <div class="dropdown" role="region" aria-labelledby="filtre des medias">
+          <div class="dropdown-button" aria-haspopup="true" aria-expanded="false"> 
+            <p id="Populaire-filter" aria-label="Trier par popularité">Populaire</p>
+          </div>
+          <div class="dropdown-content">
+            <p id="date-filter" aria-label="Trier par date">Date</p>
+            <p id="title-filter" aria-label="Trier par titre">Titre</p>
+          </div>
         </div>
       </div>
       <div class="media-section" aria-label="Section des médias">

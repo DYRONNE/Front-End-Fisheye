@@ -4,6 +4,7 @@ const modalImg = document.querySelector(".media-modal-img");
 const nextButton = document.querySelector(".photo_modal .right");
 const prevButton = document.querySelector(".photo_modal .left");
 const closeBtn = document.querySelector(".closeModalPhoto");
+const mediaTitle = document.querySelector(".photo-title");
 
 // Variable pour suivre l'index de l'image courante
 let currentIndex = 0;
@@ -23,21 +24,25 @@ function openMediaModal() {
     mediaModal.addEventListener('keydown', trapFocus); // Ajouter l'écouteur pour piéger le focus
 }
 
-// Fonction pour afficher une image dans la modale
 function showModalImage(index, mediaItems) {
     if (index < 0 || index >= mediaItems.length) return; // Vérification des limites
     const selectedMedia = mediaItems[index];
     
-    // Définir la source et le texte alternatif
+    // Définir la source, le texte alternatif et le titre
+    let mediaTitleText = '';
+
     if (selectedMedia.tagName === "IMG") {
         modalImg.src = selectedMedia.src;
         modalImg.alt = selectedMedia.alt;
+        mediaTitleText = selectedMedia.alt; // Utiliser l'attribut alt comme titre
     } else if (selectedMedia.tagName === "VIDEO") {
         modalImg.src = selectedMedia.querySelector('source').src; // Chemin source
         modalImg.alt = selectedMedia.querySelector('source').alt || "Vidéo"; // Valeur de repli
-       
+        mediaTitleText = selectedMedia.querySelector('source').alt || "Vidéo"; // Utiliser l'attribut alt de la source comme titre
     }
 
+    mediaTitle.textContent = mediaTitleText; // Mettre à jour la div photo-title avec le texte du titre
+    
     currentIndex = index;
     openMediaModal(); // Afficher la modale
 }
