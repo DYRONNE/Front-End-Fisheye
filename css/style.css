@@ -73,11 +73,16 @@ h1 {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    pointer-events: all;
 }
 
+.photographer_section article a {
+    pointer-events: none;
+}
 .photographer_section article img:focus {
     border: 6px solid #901C1C;
     outline: none; 
+    
     
 }
 

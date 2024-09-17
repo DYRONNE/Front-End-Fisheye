@@ -7,8 +7,8 @@
 .logo:focus{
     opacity: 0.5;
     padding: 40px;
-    outline: none
-    
+    outline: none;
+       
 }
 
 /* header ( contenant les informations du photographe selectionné, son portrait et le bouton pour le contacter ) */
@@ -213,6 +213,15 @@ div.info {
     width: 100%;
     overflow: auto;
 }
+.bground-modalPhoto.open {
+   width: 100%;
+}
+.photo_modal {
+    width: 100%;
+    position: relative;
+    left: 80px;
+}
+
 .modal header {
     justify-content: space-between;
     width: 100%;
@@ -290,9 +299,9 @@ form input {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
-    margin: 0 100px 0px 100px;
-    width: 100%;
+    width: 90%;
     margin-top: 30px;
+    margin-left: 150px;
 }
 .media-container {
     width: 420px;
@@ -358,6 +367,8 @@ img, video {
 
 /* modal media  */
 
+
+
 .bground-modalPhoto {
     position: fixed;
     z-index: 1001; 
@@ -386,7 +397,7 @@ img, video {
 .media-modal-img {
     width: 100%;
     height: auto;
-    max-width: 80vw;
+    max-width: 55vw;
     max-height: 80vh;
     object-fit: cover;
     margin-right: 50px;

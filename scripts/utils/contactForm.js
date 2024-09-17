@@ -14,6 +14,29 @@ function closeModal() {
     document.querySelector(".open-modal-button").focus(); // Restaure le focus à l'élément ayant ouvert la modal
 }
 
+// Ajouter un écouteur d'événement pour le formulaire
+let form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let balisePrenom = document.getElementById("first");
+    let Prenom = balisePrenom.value;
+    console.log(Prenom);
+
+    let baliseNom = document.getElementById("last");
+    let Nom = baliseNom.value;
+    console.log(Nom);
+
+    let baliseMail = document.getElementById("mail");
+    let mail = baliseMail.value;
+    console.log(mail);
+
+    let baliseMessage = document.getElementById("message");
+    let Message = baliseMessage.value;
+    console.log(Message);
+});
+
+// Gerer navigation au clavier dans la modale de contact
 // Fonction pour piéger le focus dans la modale
 function trapFocusModal() {
     const focusableElements = contactModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -66,25 +89,3 @@ function trapFocusModal() {
 
     closeModalBtn.addEventListener('click', handleModalClose);
 }
-
-// Ajouter un écouteur d'événement pour le formulaire
-let form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    let balisePrenom = document.getElementById("first");
-    let Prenom = balisePrenom.value;
-    console.log(Prenom);
-
-    let baliseNom = document.getElementById("last");
-    let Nom = baliseNom.value;
-    console.log(Nom);
-
-    let baliseMail = document.getElementById("mail");
-    let mail = baliseMail.value;
-    console.log(mail);
-
-    let baliseMessage = document.getElementById("message");
-    let Message = baliseMessage.value;
-    console.log(Message);
-});

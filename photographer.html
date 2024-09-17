@@ -9,7 +9,7 @@
   </head>
   <body>
     <header role="banner">
-      <a href="index.html">
+      <a href="index.html" class="lien-logo">
         <img src="assets/images/logo.png" class="logo" tabIndex = 0; title="acceuil">
       </a>
     </header>
@@ -72,13 +72,13 @@
           <img class="right" src="assets/icons/right-thin-chevron-svgrepo-com.svg" alt="Image suivante" tabIndex = 0 /> 
       </div>
       <img class="closeModalPhoto" src="assets/icons/close2.svg"  alt="Fermer" onclick="closeMediaModal()" aria-label="fermer la modale" tabIndex = 0 />  
-      <div class="photo-title" aria-label="Titre de la photo">
-       
+      <div 
+        class="photo-title" aria-label="Titre de la photo">
       </div>
     </div>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/modal.js"></script>
     <script src="scripts/templates/photographerTemplate.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
    </body>
 </html>

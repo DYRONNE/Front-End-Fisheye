@@ -1,4 +1,4 @@
-// fonction factory pour affichage sur la page d´acceuil 
+// fonction pour affichage des photographes et de leurs données sur la page d´acceuil 
 function photographerTemplate(data) {
     const { name, portrait, city, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
@@ -7,7 +7,8 @@ function photographerTemplate(data) {
         const article = document.createElement( 'article' );
         article.setAttribute('role', 'article');
         article.setAttribute('aria-labelledby', `photographer-${id}`);
-
+       
+        
         const a = document.createElement('a');
         a.setAttribute('href', `photographer.html?id=${id}`);
         a.setAttribute('aria-label', `Voir les détails du photographe ${name}`);
@@ -16,7 +17,7 @@ function photographerTemplate(data) {
         img.setAttribute("src", picture);
         img.setAttribute("alt", `Portrait de ${name}`); 
         img.setAttribute('aria-labelledby', `photographer-${id}`);
-        img.tabIndex = 0;
+        img.tabIndex= 0;
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
@@ -46,7 +47,7 @@ function photographerTemplate(data) {
     return { name, picture, city, tagline, price, id, getUserCardDOM }
 }
 
-// fonction factory pour affichage des donnees photographes dans le header de la page photographe
+// fonction pour affichage des donnees photographes dans le header de la page photographe
 function photographerPageTemplate(data) {
     const { name, portrait, city, tagline, price } = data;
     const picture = `assets/photographers/${portrait}`;

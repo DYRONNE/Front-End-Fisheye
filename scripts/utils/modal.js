@@ -1,3 +1,4 @@
+// ensmble des fonctions pour la modales photo
 // Sélection des éléments globaux pour la modale
 const mediaModal = document.querySelector(".bground-modalPhoto");
 const modalImg = document.querySelector(".media-modal-img");
@@ -36,8 +37,8 @@ function showModalImage(index, mediaItems) {
         modalImg.alt = selectedMedia.alt;
         mediaTitleText = selectedMedia.alt; // Utiliser l'attribut alt comme titre
     } else if (selectedMedia.tagName === "VIDEO") {
-        modalImg.src = selectedMedia.querySelector('source').src; // Chemin source
-        modalImg.alt = selectedMedia.querySelector('source').alt || "Vidéo"; // Valeur de repli
+        modalImg.src = selectedMedia.querySelector('source').src; 
+        modalImg.alt = selectedMedia.querySelector('source').alt || "Vidéo"; i
         mediaTitleText = selectedMedia.querySelector('source').alt || "Vidéo"; // Utiliser l'attribut alt de la source comme titre
     }
 
@@ -85,7 +86,7 @@ function handleKeydown(event) {
     }
 }
 
-// Fonction pour piéger le focus dans la modale
+// Fonction pour piéger le focus dans la modale lors de la navigation au clavier dans la modale
 function trapFocus(event) {
     const focusableElements = mediaModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     const firstFocusableElement = focusableElements[0];
